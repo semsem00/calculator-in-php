@@ -6,10 +6,10 @@ $y = $_GET['number2'];
 $op = $_GET['operation'];
 
 
-
+if(isset($_GET['submit'])){
 if ($x == null or $y == null){
     echo'please Enter The numbers';
-}
+}else{
 
  function calc (int|float $x, int|float $y, string $op) 
  {
@@ -43,8 +43,11 @@ if ($x == null or $y == null){
     }
     
  }
+}
+$result= calc($x , $y , $op);
+header("location: calculate.php?result=$result");
+}else{
+  header("location: calculate.php" );
+}
 
-echo '<div class=" container mt-5 w-50 p-5 shadow-lg">';
-echo calc($x , $y , $op);
-echo '</div>';
 ?>
